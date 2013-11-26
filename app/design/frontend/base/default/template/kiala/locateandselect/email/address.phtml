@@ -1,0 +1,18 @@
+<style>
+.kp_name {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #2F2F2F;
+    font-weight: bold;
+}
+.kp_name:hover {
+    text-decoration: underline;
+}
+.kp_name:visited {
+    color: #2F2F2F;
+}
+</style>
+<?php
+
+$_order = $this->getOrder();
+echo Mage::helper('locateandselect')->formatShipping($_order->getShippingAddress()->format('html'), $_order->getShippingMethod(), $_order, true);

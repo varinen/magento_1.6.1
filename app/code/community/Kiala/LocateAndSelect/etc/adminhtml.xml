@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Remove this file if your module does not have an admin interface -->
+<config>
+    <menu>
+        <kiala translate="title" module="locateandselect">
+            <title>Kiala</title>
+            <sort_order>20</sort_order>
+            <children>
+                <orders module="locateandselect">
+                    <title>Kiala Orders</title>
+                    <sort_order>10</sort_order>
+                    <action>adminhtml/kiala_index/index</action>
+                </orders>
+            </children>
+        </kiala>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <kiala translate="title" module="locateandselect">
+                        <title>Kiala</title>
+                        <sort_order>50</sort_order>
+                        <children>
+                            <orders>
+                                <title>Kiala orders</title>
+                            </orders>
+                        </children>
+                    </kiala>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

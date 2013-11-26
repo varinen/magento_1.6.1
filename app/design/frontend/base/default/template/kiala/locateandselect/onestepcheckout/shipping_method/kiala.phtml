@@ -1,0 +1,55 @@
+<?php 
+/**
+ * Onestepcheckout kiala template
+ */
+?>
+<dt class="kiala-method-header"><?php echo $this->getCarrierName('kiala'); ?></dt>
+<dd class="kiala-onestepcheckout">
+    <?php $_rate = $this->getRate() ?>
+    <input name="shipping_method" type="radio" value="<?php echo $_rate->getCode() ?>" id="s_method_<?php echo $_rate->getCode() ?>"<?php echo $this->getCheckedAttribute($_rate) ?> class="radio field-row"/>
+    <label for="s_method_<?php echo $_rate->getCode() ?>"><?php echo $_rate->getMethodTitle() ?>
+        <strong>
+            <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
+            <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
+
+            <?php echo $_excl; ?>
+            <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+                (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+            <?php endif; ?>
+        </strong>
+    </label>
+    
+    <?php if(! Mage::helper('locateandselect')->kialaPointChosen()): ?>
+    <div class="kialapoint-select-button">
+            <button type="button" class="button" onclick="<?php echo $this->getShowpopupFunction() ?>">
+                <span><span><?php echo $this->__('Select Kiala Point') ?></span></span>
+            </button>
+    </div>
+    <?php else: ?>
+    <?php $_kialaPoints = $this->getKialaPoint(); ?>
+    <div class="kialapoints <?php echo (count($_kialaPoints) == 1)?'single':'more' ?>">
+        <?php foreach($_kialaPoints as $_kialaPoint): ?>
+        <?php echo $this->getLayout() 
+            ->createBlock('locateandselect/checkout_onepage_shipping_method_kiala_kialapoint')
+            ->setCurrentKialapoint($_kialaPoint)
+            ->setTemplate('kiala/locateandselect/checkout/onepage/shipping_method/kiala/kialapoint.phtml')
+            ->toHtml() ?>
+        <?php endforeach; ?>
+        <div class="change-kialapoint">
+            <button type="button" class="button"
+                onclick="<?php echo $this->getShowpopupFunction() ?>">
+                <span><span><?php echo $this->__('Change') ?></span></span>
+            </button>
+        </div>
+    </div>
+    <?php endif; ?>
+    
+    <div class="kiala-validation">
+        <div class="validate-kialapoint-wrapper">
+            <input name="shipping_method_kiala_kialapoint" id="shipping_method_kiala_kialapoint" type="hidden" class="validate-kialapoint" value="<?php echo Mage::helper('locateandselect')->getKialaPointId() ?>" />
+        </div>
+        <div class="validate-kialalanguage-wrapper">
+            <input name="shipping_method_kiala_kialalanguage" id="shipping_method_kiala_kialalanguage" type="hidden" class="validate-kialalanguage" value="<?php echo $this->getKialaLanguage() ?>" data-saveurl="<?php echo $this->getUrl('locateandselect/checkout/chooselanguage') ?>" />
+        </div>
+    </div>
+</dd>

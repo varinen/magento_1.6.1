@@ -1,0 +1,2 @@
+config:
+  default/carriers/kiala/css_url: "http://locateandselect.kiala.com/static/style/search/search_public_theme.css"

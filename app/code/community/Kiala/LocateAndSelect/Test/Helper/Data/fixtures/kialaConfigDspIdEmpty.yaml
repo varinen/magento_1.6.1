@@ -1,0 +1,11 @@
+config:
+  default/carriers/kiala/active: 1
+  default/carriers/kiala/desktop_app_user: 1
+  default/carriers/kiala/kiala_sender_id: Kiala ID
+  default/carriers/kiala/dspid: ''
+  default/carriers/kiala/kiala_password: wachtwoord
+  default/carriers/kiala/name: Locate & Select
+  default/carriers/kiala/show_inline: 1
+  default/carriers/kiala/preparation_delay: 5
+  default/carriers/kiala/proxy_host:  proxy.iconos.be
+  default/carriers/kiala/proxy_port: 8080

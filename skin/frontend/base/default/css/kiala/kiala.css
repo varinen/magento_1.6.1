@@ -1,0 +1,61 @@
+/* Kiala shipping method */
+.kiala-method-header {}
+.kiala-method-header img {margin-right: 5px;height: 36px;vertical-align: middle;}
+.kiala-method-header span {font-size: 18px;font-weight: bold;position:relative;}
+.kiala-method-header span .info {display: none;font-size: 12px;font-weight: normal;padding: 5px;border-radius: 5px;width:15em;line-height: normal;background-color: #B1003B;border: 1px solid grey;color: white;}
+.kiala-method-header span:hover {z-index:25;}
+.kiala-method-header span:hover .info {display: block;position:absolute;top:2em;left:2em;}
+
+.kiala-method-header .kiala-info-tooltip {margin-left: 5px;margin-top: -4px;height: 20px;}
+
+.kialapoints {}
+
+.kialapoints .kialapoint {}
+.kialapoints .kialapoint .kialapoint-info {}
+
+.kialapoints .kialapoint .kialapoint-content {overflow:hidden;}
+.kialapoints .kialapoint .kialapoint-content .picture {float:left;clear:none;}
+.kialapoints .kialapoint .kialapoint-content .picture img {width: 64px;border-radius: 5px;box-shadow: 1px 1px 2px #BBBBBB;-moz-box-sizing: content-box;}
+.kialapoints .kialapoint .kialapoint-content .details {float:left;clear:none;margin-left:10px;}
+.kialapoints .kialapoint .kialapoint-content .details p {margin-bottom:0;line-height:14px;text-transform: uppercase;}
+.kialapoints .kialapoint .kialapoint-content .details p.location-hint {text-transform: none;font-style: italic;margin:0 0 10px;}
+.kialapoints .kialapoint .kialapoint-content .details a {color:#000;text-decoration: none;}
+.kialapoints .kialapoint .kialapoint-content .details a:hover {text-decoration: underline;}
+
+.kialapoints .change-kialapoint {margin-left:74px;}
+
+.kialapoints.more {overflow:hidden;}
+.kialapoints.more .kialapoint {float:left;width:300px;margin-right:10px;}
+.kialapoints.more .kialapoint .kialapoint-content .details {width:225px;}
+
+.kiala-overlay .kialapoints.more .kialapoint {width:285px;}
+.kiala-overlay .kialapoints.more .kialapoint .kialapoint-content .details {width:210px;}
+
+
+.select-kialapoint {margin-top:20px;}
+
+.select-kialalanguage {text-align:center;}
+.select-kialalanguage p {margin-bottom:5px;}
+.select-kialalanguage p.first {margin-top:5px;}
+
+.kiala-validation .validate-kialapoint-wrapper { }
+.kiala-validation .validate-kialalanguage-wrapper { display:none; }
+
+.kiala-overlay {margin:5px;}
+
+/* Onestepcheckout extra styling */
+.kiala-onestepcheckout .kialapoints {margin:0 0 10px 20px;}
+.kiala-onestepcheckout .kialapoints .kialapoint-info p{margin-bottom:5px;}
+
+.kiala-onestepcheckout .picture {display:none;}
+.kiala-onestepcheckout .kialapoint-info {color:#D0003A;}
+.kiala-onestepcheckout .details {font-weight: normal;}
+
+.kiala-onestepcheckout .kialapoints .kialapoint .kialapoint-content .details {margin-left:0;}
+.kiala-onestepcheckout .kialapoints .change-kialapoint {margin-left:0;}
+
+.kiala-onestepcheckout .details .location-hint {display:none;}
+
+.kiala-onestepcheckout .change-kialapoint {margin-top:10px;}
+
+.kiala-onestepcheckout .kialapoint-select-button {margin:5px 0 10px 20px;}

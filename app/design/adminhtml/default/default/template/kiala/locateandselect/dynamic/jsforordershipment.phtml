@@ -1,0 +1,11 @@
+<?php $_order = $this->getOrder(); ?>
+<script type="text/javascript">
+<!--
+    
+	var orderReference 				= '<?php echo $_order->getRealOrderId();?>';
+	var carrierCode 				= '<?php echo $_order->getShippingCarrier()->getCarrierCode();?>';
+    var requestNewTrackingCodeUrl 	= '<?php // echo Mage::helper("adminhtml")->getUrl("locateandselect/api/newtrackingcode/",array()); ?>';
+	var requestPrintAllLabelsUrl 	= '<?php // echo Mage::helper("adminhtml")->getUrl("locateandselect/api/labels/",array("_query"=> true,"orderReference" => $_order->getRealOrderId())); ?>';
+	var requestPrintLabelUrl		= '<?php // echo Mage::helper("adminhtml")->getUrl("locateandselect/api/label/",array()); ?>';
+//-->
+</script>

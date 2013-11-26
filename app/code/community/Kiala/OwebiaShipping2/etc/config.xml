@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Kiala_OwebiaShipping2>
+            <version>1.0.1</version>
+        </Kiala_OwebiaShipping2>
+    </modules>
+    <global>
+        <models>
+            <kiala_owebia_shipping2>
+                <class>Kiala_OwebiaShipping2_Model</class>
+            </kiala_owebia_shipping2>
+        </models>
+        <resources>
+            <sales>
+                <shipping>
+                    <carriers>
+                        <owebia_kiala>
+                            <class>Kiala_OwebiaShipping2_Model_Carrier_OwebiaKiala</class>
+                        </owebia_kiala>
+                    </carriers>
+                </shipping>
+            </sales>
+        </resources>
+    </global>
+
+    <default>
+        <carriers>
+            <owebia_kiala>
+                <model>Kiala_OwebiaShipping2_Model_Carrier_OwebiaKiala</model>
+            </owebia_kiala>
+        </carriers>
+    </default>
+</config>

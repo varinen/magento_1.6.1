@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Kiala_LocateAndSelect
+ *
+ * @package 	Kiala Locate And Select
+ * @copyright   Copyright (c) 2012 Kiala
+ * @author 		Phpro (http://www.phpro.be)
+ */
+-->
+
+<layout version="0.1.0">    
+
+<locateandselect_admin_index>
+            <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/kiala/locateandselect/admin/index.js</name>
+                <params/>
+            </action>
+            </reference>
+</locateandselect_admin_index>
+<!--
+
+    <adminhtml_sales_order_shipment_new>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/kiala/locateandselect/base.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/kiala/locateandselect/kiala.css</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="locateandselect/adminhtml_javascript" name="adminhtml.sales.order.shipping.new.jsforordershipment" before="-" template="kiala/locateandselect/dynamic/jsforordershipment.phtml"></block>
+        </reference>
+    </adminhtml_sales_order_shipment_new>
+
+    <adminhtml_sales_order_shipment_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/kiala/locateandselect/base.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/kiala/locateandselect/sales_order_shipment_view.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/kiala/locateandselect/bpost.css</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="locateandselect/adminhtml_javascript" name="adminhtml.sales.order.shipping.view.jsforordershipment" before="-" template="kiala/locateandselect/dynamic/jsforordershipment.phtml"></block>
+        </reference>
+    </adminhtml_sales_order_shipment_view>
+
+    <adminhtml_sales_order_invoice_new>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/kiala/locateandselect/base.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/kiala/locateandselect/kiala.css</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="locateandselect/adminhtml_javascript" name="adminhtml.sales.order.invoice.new.jsforordershipment" before="-" template="kiala/locateandselect/dynamic/jsforordershipment.phtml"></block>
+        </reference>
+    </adminhtml_sales_order_invoice_new>
+-->
+</layout>

@@ -1,0 +1,104 @@
+<?php $_htmlId = 'kiala_lns'; ?>
+<?php $_htmlClass = 'kiala_lns'; ?>
+<?php $_htmlName = 'frontend_url_parameters'; ?>
+<?php $_readonly = '0'; //$this->getElement()->getReadonly()    ?>
+
+<table cellspacing="0" class="data border" id="locateandselect_table">
+    <col width="120" />
+    <col width="95" />
+    <col width="1" />
+    <thead>
+        <tr class="headings">
+            <th><?php echo Mage::helper('locateandselect')->__('Parameter') ?></th>
+            <th><?php echo Mage::helper('locateandselect')->__('Value') ?></th>
+            <th class="last"><?php echo Mage::helper('locateandselect')->__('Action') ?></th>
+        </tr>
+    </thead>
+    <tbody id="<?php echo $_htmlId ?>_container"></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="a-right"><?php echo $this->getAddButtonHtml() ?></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var lnsRowTemplate = '<tr>'
+        + '<td><input class="<?php echo $_htmlClass ?> required-entry" name="groups[kiala][fields][<?php echo $_htmlName ?>][value][{{index}}][param]" id="<?php echo $_htmlId ?>_{{index}}_param"></td>'
+        + '<td class="nobr"><input class="<?php echo $_htmlClass ?> required-entry" type="text" name="groups[kiala][fields][<?php echo $_htmlName ?>][value][{{index}}][val]" id="<?php echo $_htmlId ?>_{{index}}_val" /></td>'
+        + '<td class="last"><input type="hidden" name="groups[kiala][fields][<?php echo $_htmlName ?>][value][{{index}}][delete]" class="delete" value="" id="<?php echo $_htmlId ?>_{{index}}_delete" />'
+        + '<button title="<?php echo Mage::helper("locateandselect")->__("Delete Parameter") ?>" type="button" class="scalable delete icon-btn delete-product-option" id="<?php echo $_htmlId ?>_{{index}}_delete_button" onclick="return lnsControl.deleteItem(event);">'
+        + '<span><?php echo Mage::helper("locateandselect")->__("Delete") ?></span></button></td>'
+        + '</tr>';
+
+    var lnsControl = {
+        template: new Template(lnsRowTemplate, new RegExp('(^|.|\\r|\\n)({{\\s*(\\w+)\\s*}})', "")),
+        itemsCount: 0,
+        addItem : function () {
+<?php if ($_readonly): ?>
+                if (arguments.length < 2) {
+                    return;
+                }
+<?php endif; ?>
+            var data = {
+                param: '',
+                val: '',
+                readOnly: false,
+                index: this.itemsCount++
+            };
+
+            if(arguments.length >= 2) {
+                data.param = arguments[0];
+                data.val   = arguments[1];
+            }
+            if (arguments.length == 3) {
+                data.readOnly = arguments[2];
+            }
+
+            Element.insert($('<?php echo $_htmlId ?>_container'), {
+                bottom : this.template.evaluate(data)
+            });
+
+            $('<?php echo $_htmlId ?>_' + data.index + '_param').value = data.param;
+            $('<?php echo $_htmlId ?>_' + data.index + '_val').value = data.val;
+
+            if (data.readOnly == '1') {
+                ['param', 'val', 'delete'].each(function(idx){
+                    $('<?php echo $_htmlId ?>_'+data.index+'_'+idx).disabled = true;
+                });
+                $('<?php echo $_htmlId ?>_'+data.index+'_delete_button').hide();
+            }
+
+<?php if ($_readonly): ?>
+                $('<?php echo $_htmlId ?>_container').select('input', 'select').each(this.disableElement);
+                $('<?php echo $_htmlId ?>_container').up('table').select('button').each(this.disableElement);
+<?php else: ?>
+                $('<?php echo $_htmlId ?>_container').select('input', 'select').each(function(el){ Event.observe(el, 'change', el.setHasChanges.bind(el)); });
+<?php endif; ?>
+        },
+        disableElement: function(el) {
+            el.disabled = true;
+            el.addClassName('disabled');
+        },
+        deleteItem: function(event) {
+            var tr = Event.findElement(event, 'tr');
+            if (tr) {
+                Element.select(tr, '.delete').each(function(elem){elem.value='1'});
+                Element.select(tr, ['input', 'select']).each(function(elem){elem.hide()});
+                Element.hide(tr);
+                Element.addClassName(tr, 'no-display template');
+            }
+            return false;
+        }
+    };
+<?php foreach ($this->getValues() as $_item): ?>
+        lnsControl.addItem('<?php echo $_item['param'] ?>', '<?php echo $_item['val'] ?>');
+<?php endforeach; ?>
+<?php if ($_readonly): ?>
+        $('<?php echo $_htmlId ?>_container').up('table').select('button')
+        .each(lnsControl.disableElement);
+<?php endif; ?>
+    $('locateandselect_table').up().addClassName('grid');
+    //]]>
+</script>

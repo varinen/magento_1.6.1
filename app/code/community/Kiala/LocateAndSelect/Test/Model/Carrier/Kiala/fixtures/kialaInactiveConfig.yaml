@@ -1,0 +1,4 @@
+config:
+  default/carriers/kiala/active:0
+  default/carriers/flatrate/active:0
+  default/carriers/kiala/name: Locate & Select

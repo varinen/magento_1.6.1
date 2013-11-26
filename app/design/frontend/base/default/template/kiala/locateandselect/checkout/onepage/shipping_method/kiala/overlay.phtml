@@ -1,0 +1,26 @@
+<div class="kiala-overlay">
+    <?php $_kialaPoints = $this->getKialaPoint($this->getIsChange()); ?>
+    <?php if(is_array($_kialaPoints) && count($_kialaPoints))://Show preselection ?>
+    <div class="kialapoints <?php echo (count($_kialaPoints) == 1)?'single':'more' ?>">
+        <?php foreach($_kialaPoints as $_kialaPoint): ?>
+        <?php echo $this->getLayout() 
+            ->createBlock('locateandselect/checkout_onepage_shipping_method_kiala_kialapoint')
+            ->setCurrentKialapoint($_kialaPoint)
+            ->setIsChange($this->getIsChange())
+            ->setTemplate('kiala/locateandselect/checkout/onepage/shipping_method/kiala/kialapoint.phtml')
+            ->toHtml() ?>
+        <?php endforeach; ?>
+        <?php if (!$this->getIsChange() && Mage::helper('locateandselect')->kialaPointChosen()) : ?>
+        <div class="change-kialapoint">
+            <button type="button" class="button"
+                onclick="showKialaWindow('<?php echo Mage::getUrl('locateandselect/kialapoint/change') ?>','ajax', <?php echo $this->getWidth() + 15 ?>, <?php echo $this->getHeight() + 179 ?>);">
+                <span><span><?php echo $this->__('Change') ?></span></span>
+            </button>
+        </div>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
+    <div class="select-kialapoint">
+        <?php echo $this->getChildHtml('map') ?>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<?php $_kialaPoint = $this->getCurrentKialapoint() ?>
+<?php if($_kialaPoint): ?>
+<div class="kialapoint">
+    <div class="kialapoint-info">
+        <p><?php echo $this->__($this->getKialaPointDescription($_kialaPoint)); ?></p>
+    </div>
+    <div class="kialapoint-content">
+        <div class="picture">
+            <a href="javascript:void(0)" onclick="showKialaWindow('<?php echo Mage::helper('locateandselect/url')
+                ->getKPDetailsUrl($_kialaPoint, $this->getQuote()) ?>','iframe', <?php echo $this->getWidth() ?>, <?php echo $this->getHeight() ?>);">
+                <img src="<?php echo $_kialaPoint->getPictureUrl(); ?>" alt="<?php echo $_kialaPoint->getName(); ?>" class="kiala_point" />
+            </a>
+        </div>
+        <div class="details">
+            <p>
+                <a href="javascript:void(0)" onclick="showKialaWindow('<?php echo Mage::helper('locateandselect/url')->getKPDetailsUrl($_kialaPoint, $this->getQuote()) ?>','iframe', <?php echo $this->getWidth() ?>, <?php echo $this->getHeight() ?>);" class="kialapoint-name">
+                    <strong><?php echo $_kialaPoint->getName(); ?></strong>
+                </a>
+            </p>
+            <p><?php echo $_kialaPoint->getStreet() ?></p>
+            <p><?php echo $_kialaPoint->getPostcode().' '.$_kialaPoint->getCity() ?></p>
+            <p class="location-hint"><?php echo $_kialaPoint->getLocationHint() ?></p>
+            <?php if ($this->canShowSelectButton()) : ?>
+            <button type="button" class="button kialapoint-select" onclick="selectKialapointFrontend('<?php echo Mage::getUrl('locateandselect/map/selectonfrontend', array("_secure" => true,'shortkpid'=>$_kialaPoint->getShortId())) ?>');">
+                <span><span><?php echo $this->__('Select') ?></span></span>
+            </button>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

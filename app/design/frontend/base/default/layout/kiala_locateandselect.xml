@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     Kiala_LocateAndSelect
+ * @copyright   Copyright (c) 2012 Kiala
+ * @author      Phpro (http://www.phpro.be)
+ */
+-->
+<layout version="0.1.0">
+    <kiala_checkout>
+        <reference name="head">
+            <action method="addJs"><script>prototype/window.js</script></action>
+            <action method="addJs"><script>kiala/locateandselect.js</script></action>
+            
+            <action method="addCss"><stylesheet>css/kiala/kiala.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/kiala/window.css</stylesheet></action>
+        </reference>
+    </kiala_checkout>
+    
+    <!-- Onepage checkout -->
+    <checkout_onepage_shippingmethod>
+        <reference name="root">
+            <action method="setTemplate"><template>kiala/locateandselect/checkout/onepage/shipping_method/available.phtml</template></action>
+        </reference>
+    </checkout_onepage_shippingmethod>
+    
+    <checkout_onepage_index>
+        <update handle="kiala_checkout" />
+    </checkout_onepage_index>
+    
+    <checkout_onepage_progress>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>kiala/locateandselect/checkout/onepage/progress.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_progress>
+    <!-- End onepage checkout -->
+    
+    <!-- Onestepcheckout -->
+    <kiala_onestepcheckout>
+        <reference name="choose-shipping-method">
+            <action method="setTemplate">
+                <template>kiala/locateandselect/onestepcheckout/shipping_method.phtml</template>
+            </action>
+        </reference>
+    </kiala_onestepcheckout>
+    
+    <onestepcheckout_index_index>
+        <update handle="kiala_checkout" />
+        <update handle="kiala_onestepcheckout" />
+    </onestepcheckout_index_index>
+    
+    <!-- onestepcheckout ajax calls -->
+    <onestepcheckout_ajax_save_billing>
+        <update handle="kiala_onestepcheckout" />
+    </onestepcheckout_ajax_save_billing>
+    <onestepcheckout_ajax_add_extra_product>
+        <update handle="kiala_onestepcheckout" />
+    </onestepcheckout_ajax_add_extra_product>
+    <onestepcheckout_ajax_add_coupon>
+        <update handle="kiala_onestepcheckout" />
+    </onestepcheckout_ajax_add_coupon>
+    <onestepcheckout_ajax_add_giftcard>
+        <update handle="kiala_onestepcheckout" />
+    </onestepcheckout_ajax_add_giftcard>
+    <!-- end onestepcheckout ajax calls -->
+    
+    <!-- end onestepcheckout -->
+        
+    <!-- Overlay -->
+    <locateandselect_kialapoint_change>
+        <block type="locateandselect/checkout_onepage_shipping_method_kiala_overlay" name="overlay" template="kiala/locateandselect/checkout/onepage/shipping_method/kiala/overlay.phtml">
+            <action method="setIsChange"><is_change>1</is_change></action>
+            <block type="locateandselect/checkout_onepage_shipping_method_kiala_map" name="map" template="kiala/locateandselect/checkout/onepage/shipping_method/kiala/map.phtml" />
+        </block>
+    </locateandselect_kialapoint_change>
+    <!-- End overlay -->
+    
+    <sales_order_view>
+        <update handle="kiala_checkout" />
+    </sales_order_view>
+    
+    <shipping_tracking_popup>
+        <!-- the template we are setting is exactly thesame as in CE 1.4.2 to 1.6.2 -->
+        <!-- problem is that since 1.7.0 it escapes html and breaks the image of kiala -->
+        <reference name="shipping.tracking.popup">
+            <action method="setTemplate">
+                <template>kiala/locateandselect/shipping/tracking/popup.phtml</template>
+            </action>
+        </reference>
+    </shipping_tracking_popup>
+</layout>

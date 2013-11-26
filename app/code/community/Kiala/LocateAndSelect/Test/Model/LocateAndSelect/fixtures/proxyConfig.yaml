@@ -1,0 +1,4 @@
+config:
+  default/carriers/kiala/active: 1
+  default/carriers/kiala/proxy_host: proxy.iconos.be
+  default/carriers/kiala/proxy_port: 8080

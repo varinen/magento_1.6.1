@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<jstranslator>
+    <!-- js/kiala/locateandselect.js -->
+    <validate-kiala translate="message" module="locateandselect">
+        <message>Please select a Kiala Point where you will collect your order!</message>
+    </validate-kiala>
+    <!-- end js/kiala/locateandselect.js -->
+</jstranslator>

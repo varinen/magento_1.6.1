@@ -1,0 +1,15 @@
+<?php if(Mage::helper('locateandselect')->showInline()): ?>
+<iframe 
+    id="kiala_locate_and_select" 
+    name="kiala_locate_and_select"
+    width="<?php echo $this->getWidth() ?>" 
+    height="<?php echo $this->getHeight() ?>" 
+    src="<?php echo $this->getLocateAndSelectUrl() ?>" 
+    >
+</iframe>
+<?php else: ?>
+<button type="button" class="button no-address" 
+    onclick="showKialaWindow('<?php echo $this->getLocateAndSelectUrl() ?>','iframe', <?php echo $this->getWidth() + 5?>, <?php echo $this->getHeight() ?>);">
+    <span><span><?php echo $this->__('Select another Kiala Point on map') ?></span></span>
+</button>
+<?php endif; ?>

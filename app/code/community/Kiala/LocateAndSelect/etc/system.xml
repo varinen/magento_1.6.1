@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<!-- Remove this file if your module does not have a system configuration interface -->
+<config>
+    <tabs>
+    </tabs>
+    <sections>
+        <carriers>
+            <groups>
+                <kiala>
+                    <label>Kiala Parcel Delivery</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <admin_guide>
+                            <label>Information</label>
+                            <frontend_type>label</frontend_type>
+                            <comment><![CDATA[<a href="https://info.kiala.com/e-commerce" target="_blank">http://e-commerce.kiala.com</a>]]></comment>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </admin_guide>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Appearance - Carrier Name</label>
+                            <frontend_type>label</frontend_type>
+                            <comment>Name showed on a number of magento pages.</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-alpha</validate>
+                        </title>
+                        <sort_order translate="label">
+                            <label>Appearance - Sort Order</label>
+                            <comment>The order in which the Kiala Parcel Delivery shipping method appears on the checkout.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                        <preselected translate="label">
+                            <label>Appearance - Pre-selected Shipment Method</label>
+                            <comment>Pre-selects this shipment method when displaying the shipment options.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </preselected>
+                        <flatfee_shippingcost translate="label">
+                            <label>Shipment Fee - Flat Rate</label>
+                            <comment><![CDATA[Fixed fee for Kiala shipments, e.g.: 4.95. This will only work if Rate Type is set to Flat Rate.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                        </flatfee_shippingcost>
+                        <owebia_integration>
+                            <label>Shipment Fee - Owebia Information</label>
+                            <frontend_model>locateandselect/adminhtml_system_config_owebiaIntegration</frontend_model>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </owebia_integration>
+                        <use_tablerates translate="label">
+                            <label>Shipment Fee - Rate Type</label>
+                            <comment><![CDATA[Calculate shipment costs based on selected rate type.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>locateandselect/system_config_source_rateType</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                        </use_tablerates>
+                        <sender_country translate="label">
+                            <label>Sender Country</label>
+                            <comment>The country from which the parcels will be sent. Mandatory field.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender_country>
+                        <preparation_delay translate="label">
+                            <label>Average Preparation Delay</label>
+                            <comment>The delay between the declaration of the shipment and the drop-off/pick-up at/by Kiala. Default config: 2.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-number</validate> 
+                        </preparation_delay>
+                        <frontend_url translate="label">
+                            <label><![CDATA[Locate&Select - KP Search URL]]></label>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Don't change, unless instructed by Kiala.]]></comment>
+                            <validate>validate-url</validate>
+                        </frontend_url>
+                        <frontend_url_parameters>
+                            <label><![CDATA[Locate&Select Map - KP Search URL Parameters]]></label>
+                            <comment>Default config: gui | sleek</comment>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_model>locateandselect/adminhtml_system_config_locateAndSelect</frontend_model>
+                            <backend_model>locateandselect/system_config_backend_urlparams</backend_model>
+                        </frontend_url_parameters>
+                        <kp_details_url translate="label">
+                            <label><![CDATA[Locate&Select Map - KP Details URL]]></label>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Don't change, unless instructed by Kiala.]]></comment>
+                            <validate>validate-url</validate>
+                        </kp_details_url>
+                        <kp_details_url_parameters>
+                            <label><![CDATA[Locate&Select Map - KP Details URL Parameters]]></label>
+                            <comment><![CDATA[Default config: gui | sleek]]></comment>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_model>locateandselect/adminhtml_system_config_kPDetails</frontend_model>
+                            <backend_model>locateandselect/system_config_backend_urlparams</backend_model>
+                        </kp_details_url_parameters>
+                        <show_inline translate="label">
+                            <label><![CDATA[Locate&Select Map - Show Map Inline]]></label>
+                            <comment><![CDATA[Yes = the map is shown inline with the checkout content. No = the map will be displayed in a lightbox upon pressing the corresponding button.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_inline>
+                        <map_width  translate="label">
+                            <label><![CDATA[Locate&Select Map - Map Width]]></label>
+                            <comment>Map width in pixels.</comment>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-number</validate>
+                        </map_width>
+                        <map_height  translate="label">
+                            <label><![CDATA[Locate&Select Map - Map Height]]></label>
+                            <comment>Map height in pixels.</comment>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-number</validate>
+                        </map_height>
+                        <desktop_app_user translate="label">
+                            <label><![CDATA[Pack&Ship - Type]]></label>
+                            <comment><![CDATA[In order to use Pack&Ship Desktop, please contact Kiala at <a href="mailto:magento.support@kiala.com">magento.support@kiala.com</a>]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>locateandselect/system_config_source_packAndShip</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </desktop_app_user>
+                        <api_uri translate="label">
+                            <label><![CDATA[Pack&Ship WS - URL]]></label>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Don't change, unless instructed by Kiala.]]></comment>
+                        </api_uri>
+                        <api_uri_parameters>
+                            <label><![CDATA[Pack&Ship WS - URL Parameters]]></label>
+                            <comment><![CDATA[Don't change, unless instructed by Kiala. Default config: blank table.]]></comment>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_model>locateandselect/adminhtml_system_config_packAndShip</frontend_model>
+                            <backend_model>locateandselect/system_config_backend_urlparams</backend_model>
+                        </api_uri_parameters>
+                        <kiala_sender_id translate="label">
+                            <label><![CDATA[Pack&Ship WS - Sender ID]]></label>
+                            <comment><![CDATA[Only required when Pack&Ship WS is selected. 
+                                        Create a profile on Kiala’s web site and retrieve it from your <strong>sender</strong> profile.]]></comment>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-alphanum</validate>
+                        </kiala_sender_id>
+                        <kiala_password translate="label">
+                            <label><![CDATA[Pack&Ship WS - Password]]></label>
+                            <comment><![CDATA[Only required when Pack&Ship WS is selected.
+                                        Password of your profile on Kiala’s web site.]]></comment>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>>
+                            <validate>validate-password</validate>
+                        </kiala_password>
+                        <dspid_matrix translate="label">
+                            <label><![CDATA[Pack&Ship - DSP ID Matrix]]></label>
+                            <frontend_type>textarea</frontend_type>
+                            <comment><![CDATA[Please contact Kiala at <a href="mailto:magento@kiala.com">magento@kiala.com</a> to get the exact value]]></comment>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dspid_matrix>
+                        <trackandtrace_uri translate="label">
+                            <label><![CDATA[Track&Trace WS - URL]]></label>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Don't change, unless instructed by Kiala.]]></comment>
+                        </trackandtrace_uri>
+                        <trackandtrace_uri_parameters>
+                            <label><![CDATA[Track&Trace - URL Parameters]]></label>
+                            <comment><![CDATA[Don't change, unless instructed by Kiala. Default config: blank table.]]></comment>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_model>locateandselect/adminhtml_system_config_trackAndTrace</frontend_model>
+                            <backend_model>locateandselect/system_config_backend_urlparams</backend_model>
+                        </trackandtrace_uri_parameters>
+                        <proxy_host translate="label">
+                            <label>Proxy Host</label>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Use when your Magento store needs to pass through a proxy to access Kiala's web services. Do not add "http://"!</comment>
+                        </proxy_host>
+                        <proxy_port translate="label">
+                            <label>Proxy Port</label>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-number</validate>
+                            <comment>Use when your Magento store needs to pass through a proxy to access Kiala's web services.</comment>
+                        </proxy_port>
+                        <proxy_login translate="label">
+                            <label>Proxy Username</label>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Use when your Magento store needs to pass through a proxy to access Kiala's web services.</comment>
+                        </proxy_login>
+                        <proxy_password translate="label">
+                            <label>Proxy Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-password</validate>
+                            <comment>Use when your Magento store needs to pass through a proxy to access Kiala's web services.</comment>
+                        </proxy_password>
+                    </fields>
+                </kiala>
+            </groups>
+        </carriers>
+    </sections>
+</config>

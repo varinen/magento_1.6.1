@@ -1,0 +1,7 @@
+<div class="select-kialalanguage">
+    <p class="first"><?php echo $this->__('Select your language for the delivery notification:') ?></p>
+    <p><?php echo $this->getLanguageDropdown() ?></p>
+    <p>
+        <input type="button" value="<?php echo $this->__('Next') ?>" onclick="saveKialaLanguage('<?php echo Mage::getUrl('locateandselect/checkout/savelanguage') ?>')" />
+    </p>
+</div>

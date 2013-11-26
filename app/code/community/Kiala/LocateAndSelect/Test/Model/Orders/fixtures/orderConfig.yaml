@@ -1,0 +1,18 @@
+tables:
+  sales/order:
+    - entity_id: 1
+      state: pending
+      status: pending
+      shipping_method: kiala_kiala_0210
+    - entity_id: 2
+      state: processing
+      status: processing
+      shipping_method: flatrate_flatrate
+    - entity_id: 3
+      state: processing
+      status: processing
+      shipping_method: flatrate_flatrate
+    - entity_id: 4
+      state: canceled
+      status: canceled
+      shipping_method: kiala_kiala_0210
